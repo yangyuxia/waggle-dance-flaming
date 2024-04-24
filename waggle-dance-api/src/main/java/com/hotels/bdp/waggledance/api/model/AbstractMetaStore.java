@@ -65,6 +65,7 @@ public abstract class AbstractMetaStore {
     this.remoteMetaStoreUris = remoteMetaStoreUris;
     this.accessControlType = accessControlType;
   }
+  private Map<String, String> configurationProperties = Collections.emptyMap();
 
   public AbstractMetaStore(
       String name,
@@ -234,6 +235,15 @@ public abstract class AbstractMetaStore {
     }
     final AbstractMetaStore other = (AbstractMetaStore) obj;
     return Objects.equal(name, other.name);
+  }
+
+  public Map<String, String> getConfigurationProperties() {
+    return configurationProperties;
+  }
+
+  public void setConfigurationProperties(
+          Map<String, String> configurationProperties) {
+    this.configurationProperties = configurationProperties;
   }
 
   @Override
